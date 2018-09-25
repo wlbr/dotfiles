@@ -1,0 +1,43 @@
+#export MANPATH=/opt/local/share/man:/usr/local/man:$MANPATH
+
+GOBASE=${HOME}/Library/golang
+GOWORKSPACE=$HOME/Documents/dev/go
+export GOPATH=${GOBASE}/packages
+export GOBIN=${GOPATH}/bin
+#export GOARCH=amd64
+#export GOOS=darwin
+PATH="${PATH}:${GOBASE}/go/bin:${GOBASE}/packages/bin"
+
+GOGITHUBWORKSPACE="$HOME/Library/golang/packages/src/github.com/wlbr"
+GOSCRUMLRWORKSPACE="$HOME/Library/golang/packages/src/bitbucket.org/scrumlr"
+GITLABWORKSPACE="$HOME/Library/golang/packages/src/gitlab.inovex.de/mwolber"
+
+WORKSPACENAME=NONE
+shrinkPath() {
+	if [ x${PWD#$1} == x${PWD} ]; then
+		echo ${PWD} | sed "s@$HOME@~@"
+	else
+		echo ${WORKSPACENAME}${PWD#$1}
+	fi
+}
+
+cdw() {
+	if [ -d "${GOGITHUBWORKSPACE}/$1" ]; then
+		WORKSPACE=${GOGITHUBWORKSPACE}
+		WORKSPACENAME=GOSRC
+	elif [ -d "${GOSCRUMLRWORKSPACE}/$1" ]; then
+		WORKSPACE=${GOSCRUMLRWORKSPACE}
+		WORKSPACENAME=SCRUMLR
+	elif [ -d "${GITLABWORKSPACE}/$1" ]; then
+		WORKSPACE=${GITLABWORKSPACE}
+		WORKSPACENAME=GITLAB
+	else
+		WORKSPACENAME=NONE
+	fi
+	if [ ${WORKSPACENAME} != "NONE" ]; then
+		cd "${WORKSPACE}/$1"
+		PS1="\`shrinkPath \"${WORKSPACE}\"\` $ "
+	else
+		cd $1
+	fi
+}

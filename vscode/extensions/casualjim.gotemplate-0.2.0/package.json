@@ -1,0 +1,73 @@
+{
+	"name": "gotemplate",
+	"displayName": "gotemplate-syntax",
+	"description": "Language support for go text/template",
+	"version": "0.2.0",
+	"publisher": "casualjim",
+	"engines": {
+		"vscode": "^0.10.1"
+	},
+	"categories": [
+		"Languages"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "gotemplate",
+				"aliases": [
+					"Golang Text Template",
+					"gotemplate"
+				],
+				"extensions": [
+					".gotmpl"
+				],
+				"configuration": "./gotemplate.configuration.json"
+			},
+			{
+				"id": "gohtml",
+				"aliases": [
+					"Golang HTML Template",
+					"gohtml"
+				],
+				"extensions": [
+					".gohtml"
+				],
+				"configuration": "./gotemplate.configuration.json"
+			},
+			{
+				"id": "goyaml",
+				"aliases": [
+					"Golang YAML Template",
+					"goyaml"
+				],
+				"extensions": [
+					".yml.tpl",
+					".yaml.tpl"
+				],
+				"configuration": "./gotemplate.configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "gotemplate",
+				"scopeName": "source.gotemplate",
+				"path": "./syntaxes/gotemplate.tmLanguage"
+			},
+			{
+				"language": "gohtml",
+				"scopeName": "source.gohtml",
+				"path": "./syntaxes/gohtml.tmLanguage"
+			},
+			{
+				"language": "goyaml",
+				"scopeName": "source.goyaml",
+				"path": "./syntaxes/goyaml.tmLanguage"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "3b3d36c0-6af6-4ede-aaba-6f460423ddea",
+		"publisherId": "a46c8726-544a-4af3-899a-facf4755d595",
+		"publisherDisplayName": "casualjim"
+	}
+}
