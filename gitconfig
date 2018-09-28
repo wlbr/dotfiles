@@ -1,8 +1,6 @@
-[merge]
-	tool = /Applications/Tools/p4merge.app/Contents/MacOS/p4merge
 [alias]
 	show-graph = log --graph --abbrev-commit --pretty=oneline
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)%an <%ae>%Creset' --abbrev-commit --date=relative
 [color]
 	ui = auto
 [core]
@@ -10,6 +8,8 @@
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
+[merge]
+	tool = /Applications/Tools/p4merge.app/Contents/MacOS/p4merge
 [mergetool "sourcetree"]
 	cmd = /Applications/Netz/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
@@ -23,9 +23,5 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-[includeIf "gitdir:~/"]
-  path = ~/.gitconfig-special
-[includeIf "gitdir:~/Documents/src/ergo/"]
-  path = ~/Documents/src/ergo/.gitconfig
-[includeIf "gitdir:~/Library/golang/packages/src/github.com/wlbr/"]
-  path = ~/Library/golang/packages/src/github.com/wlbr/.gitconfig
+[include]
+  path = ~/.gitconfig_secrets
