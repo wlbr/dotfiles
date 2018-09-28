@@ -1,0 +1,59 @@
+##This file shoud propably be sourced from bash_special
+##VPNGREPEXP, VPNHTTPPROXY and VPNLOOKUPSERVER need to be defined before (in secret file)
+##VPNNOPROXY is optional
+
+if [ -z ${VPNHTTPPROXY} ]; then
+	echo '$VPNHTTPPROXY' is unset.
+	exit -1
+elif [ -z ${VPNLOOKUPSERVER} ]; then
+	echo '$VPNLOOKUPSERVER' is unset.
+	exit -1
+elif [ -z ${VPNGREPEXP} ]; then
+	echo '$VPNGREPEXP' is unset.
+	exit -1
+fi
+
+# Check for company network and set the proxies accordingly
+vpnstatuscode() {
+	#return values: -1=unknown, 0=disconnected, 1=connected with CitrixSSO, 2=connected with Citrix kernel extension
+	VPNSTATUS=-1
+	VPNTEST=$(scutil --nc list | grep -E ${VPNGREPEXP} | grep -o Connected) # test in case of citrix sso client
+	if [ xConnected == xVPNTEST ]; then
+		VPNSTATUS=1 #up-CitrixSSO
+	else
+		LOOKUPTEST=$(dig ${VPNLOOKUPSERVER} +short)
+		if [ -z "$LOOKUPTEST" ]; then
+			VPNSTATUS=0 #down
+		else
+			VPNSTATUS=2
+		fi
+	fi
+	return $VPNSTATUS
+}
+
+VPNSTATUS="$(vpnstatuscode)$?"
+RED='\033[0;31m'
+BLUE='\033[0;34m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+if [ $VPNSTATUS == 1 ]; then
+	echo -e "VPN ${GREEN}connected ${NC}(CitrixSSO)."
+elif [ $VPNSTATUS == 2 ]; then
+	echo -e "VPN ${GREEN}connected ${NC}(Citrix KernelExtension)."
+elif [ $VPNSTATUS == 0 ]; then
+	echo -e "VPN ${RED}disconnected${NC}."
+elif [ $VPNSTATUS == -1 ]; then
+	echo -e "VPN status ${BLUE}unknown${NC}."
+fi
+
+if [ 0 -lt $VPNSTATUS ]; then
+	export http_proxy="http://${VPNHTTPPROXY}:80"
+	export https_proxy="https://${VPNHTTPPROXY}"
+	export ftp_proxy="${VPNHTTPPROXY}"
+	export rsync_proxy="${VPNHTTPPROXY}"
+	export HTTP_PROXY=$http_proxy
+	export HTTPS_PROXY=$https_proxy}
+	export FTP_PROXY="${VPNHTTPPROXY}"
+	export RSYNC_PROXY="${VPNHTTPPROXY}"
+	export no_proxy="127.0.0.1,localhost${VPNNOPROXY}"
+fi
