@@ -1,6 +1,6 @@
 
 #needs make version >4
-#brew reinstall make --with-default-names
+#brew install make --with-default-names
 
 SHELL=/bin/bash
 .ONESHELL:
