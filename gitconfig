@@ -24,7 +24,7 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 [includeIf "gitdir:~/"]
-  path = ~/.gitconfig-special
+  path = ~/.gitconfig_secrets
 [includeIf "gitdir:~/Documents/src/ergo/"]
   path = ~/Documents/src/ergo/.gitconfig
 [includeIf "gitdir:~/Library/golang/packages/src/github.com/wlbr/"]
