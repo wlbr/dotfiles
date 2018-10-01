@@ -3,3 +3,5 @@ gitconfig_local
 bak
 bak/*
 .gitconfig
+.vscode
+.vscode/*
