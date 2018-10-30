@@ -15,10 +15,10 @@ fi
 
 # Check for company network and set the proxies accordingly
 vpnstatuscode() {
-	#return values: -1=unknown, 0=disconnected, 1=connected with CitrixSSO, 2=connected with Citrix kernel extension
+ 	#return values: -1=unknown, 0=disconnected, 1=connected with CitrixSSO, 2=connected with Citrix kernel extension
 	VPNSTATUS=-1
-	VPNTEST=$(scutil --nc list | grep -E ${VPNGREPEXP} | grep -o Connected) # test in case of citrix sso client
-	if [ xConnected == xVPNTEST ]; then
+	VPNTEST=$(scutil --nc list | grep -Ei "${VPNGREPEXP}" | grep -o Connected) # test in case of citrix sso client
+	if [ "xConnected" == "x${VPNTEST}" ]; then
 		VPNSTATUS=1 #up-CitrixSSO
 	else
 		LOOKUPTEST=$(dig ${VPNLOOKUPSERVER} +short)
@@ -46,7 +46,7 @@ elif [ $VPNSTATUS == -1 ]; then
 	echo -e "VPN status ${BLUE}unknown${NC}."
 fi
 
-if [ 0 -lt $VPNSTATUS ]; then
+if [ 1 -lt $VPNSTATUS ]; then
 	export http_proxy="http://${VPNHTTPPROXY}:80"
 	export https_proxy="https://${VPNHTTPPROXY}"
 	export ftp_proxy="${VPNHTTPPROXY}"
@@ -56,4 +56,5 @@ if [ 0 -lt $VPNSTATUS ]; then
 	export FTP_PROXY="${VPNHTTPPROXY}"
 	export RSYNC_PROXY="${VPNHTTPPROXY}"
 	export no_proxy="127.0.0.1,localhost${VPNNOPROXY}"
+  echo Using proxy ${VPNHTTPPROXY}
 fi
