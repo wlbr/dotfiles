@@ -1,11 +1,18 @@
 #+HEMLOCK
 (progn
 	;(require :syntax-styling)
-	(require :load-list-definitions)
+	;(require :load-list-definitions)
 	;(require :anticipat-symbol-complete)
 	;delete should not put things on the kill-ring
 	(setf hemlock::*kill-ring-pushes-to-clipboard* nil)
 )
+
+
+ (let ((hemlockfixes (merge-pathnames ".ccl-hemlock-fixes.lisp"
+                                        (user-homedir-pathname))))
+   (when (probe-file hemlockfixes)
+     (load hemlockfixes)))
+     
 
 ;;; The following lines added by ql:add-to-init-file:
  #-quicklisp
