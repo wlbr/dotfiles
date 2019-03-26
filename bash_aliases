@@ -45,7 +45,7 @@ fi
    alias du='du -h'
 
    alias bluetoothreload='sudo killall -9 blued && sleep 6 && launchctl start com.apple.blued'
-   alias encmount='encfs ~/Documents/private.enc ~/Documents/\ private -- -o volname=" private" && open ~/Documents/\ private/'
+   alias encmount='encfs ~/Documents/WolbiSync/mwolber/Documents/private.enc ~/Documents/\ private -- -o volname=" private" && open ~/Documents/\ private/'
    calc() {
        CALCLINE=`echo "$*" | sed "s/,/./g"`
        RESULT=`echo "$CALCLINE"| bc`
