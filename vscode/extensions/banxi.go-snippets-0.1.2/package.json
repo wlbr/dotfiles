@@ -1,0 +1,40 @@
+{
+	"name": "go-snippets",
+	"displayName": "Go Snippets",
+	"description": "Some snippets for go,especially usefull for leetcode etc.",
+	"version": "0.1.2",
+	"publisher": "banxi",
+	"icon": "images/logo.png",
+	"homepage": "https://github.com/banxi1988/vscode-go-snippets",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/banxi1988/vscode-go-snippets.git"
+	},
+	"engines": {
+		"vscode": "^1.14.0"
+	},
+	"categories": [
+		"Snippets"
+	],
+	"contributes": {
+		"snippets": [
+			{
+				"language": "go",
+				"path": "./snippets/leetcode.json"
+			},
+			{
+				"language": "go",
+				"path": "./snippets/go.json"
+			}
+		]
+	},
+	"scripts": {
+		"build": "node ./snippets-src/make_snippets.js",
+		"vscode:prepublish": "node ./snippets-src/make_snippets.js"
+	},
+	"__metadata": {
+		"id": "a926b55b-d1ea-4da6-af90-d8d1d6b17f78",
+		"publisherId": "79e87de9-2a98-4a89-b2b3-83cb2bca5374",
+		"publisherDisplayName": "banxi"
+	}
+}
