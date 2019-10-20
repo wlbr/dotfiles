@@ -11,6 +11,7 @@ PATH="${PATH}:${GOBASE}/go/bin:${GOBASE}/packages/bin"
 GOGITHUBWORKSPACE="$HOME/Library/golang/packages/src/github.com/wlbr"
 GOSCRUMLRWORKSPACE="$HOME/Library/golang/packages/src/bitbucket.org/scrumlr"
 GITLABWORKSPACE="$HOME/Library/golang/packages/src/gitlab.inovex.de/mwolber"
+P7S1WORKSPACE="$HOME/Library/golang/packages/src/gitlab.p7s1.io"
 
 WORKSPACENAME=NONE
 shrinkPath() {
@@ -31,6 +32,9 @@ cdw() {
 	elif [ -d "${GITLABWORKSPACE}/$1" ]; then
 		WORKSPACE=${GITLABWORKSPACE}
 		WORKSPACENAME=GITLAB
+  elif [ -d "${P7S1WORKSPACE}/$1" ]; then
+		WORKSPACE=${P7S1WORKSPACE}
+		WORKSPACENAME=P7S1
 	else
 		WORKSPACENAME=NONE
 	fi
