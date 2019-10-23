@@ -178,7 +178,7 @@
 		"vscode": "^1.1.33"
 	},
 	"dependencies": {
-		"diff": "~3.0.0"
+		"diff": "~4.0.1"
 	},
 	"__metadata": {
 		"id": "5fb19573-2183-4cf2-b53d-0fb869dae7ae",
