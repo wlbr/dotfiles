@@ -23,8 +23,8 @@ if [ -d ~/Documents/bin ] ; then
     PATH=~/Documents/bin:${PATH}
 fi
 
-
-PATH=".:${PATH}:/usr/local/sbin"
+GEMPATH=`gem env gempath | cut -d : -f 1`
+PATH=".:${PATH}:/usr/local/sbin:${GEMPATH}/bin"
 
 
 # test -r /sw/bin/init.sh && . /sw/bin/init.sh

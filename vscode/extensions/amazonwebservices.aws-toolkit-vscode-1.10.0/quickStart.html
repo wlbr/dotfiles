@@ -1,0 +1,217 @@
+<h1 id="a-idtopaaws-toolkit"><a id="top"></a>AWS Toolkit</h1>
+<p>The <em>AWS Toolkit</em>, or simply the <em>Toolkit</em>, is an extension that enables you to interact with certain services of <a href="https://aws.amazon.com/what-is-aws/">Amazon Web Services (AWS)</a> from within the VS Code editor.</p>
+<p>The following screenshots show important parts of the Toolkit.</p>
+<h2 id="a-idui-componentsafundamental-ui-components"><a id="ui-components"></a>Fundamental UI Components</h2>
+<h3 id="a-idui-components-aws-explathe-aws-explorer"><a id="ui-components-aws-expl"></a>The AWS Explorer</h3>
+<p><img src="!!EXTENSIONROOT!!/resources/marketplace/overview.png" alt="Overview, AWS Explorer"></p>
+<h3 id="a-idui-components-cdk-explathe-aws-cdk-explorer"><a id="ui-components-cdk-expl"></a>The AWS CDK Explorer</h3>
+<p><img src="!!EXTENSIONROOT!!/resources/marketplace/overview-cdk.png" alt="Overview, AWS CDK Explorer"></p>
+<h3 id="a-idopen-command-paletteaaws-commands-in-the-command-palette"><a id="open-command-palette"></a>AWS Commands in the Command Palette</h3>
+<p><img src="!!EXTENSIONROOT!!/resources/marketplace/open-command-palette.gif" alt="Command Palette"></p>
+<hr>
+<h1 id="a-idcontentsacontents"><a id="contents"></a>Contents</h1>
+<ul>
+<li><a href="#feature-overview">Feature Overview</a></li>
+<li><a href="#additional-setup-steps">Setup</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#aws-commands">Appendix A: AWS Commands</a></li>
+<li><a href="#get-help">Appendix B: Get Help</a></li>
+</ul>
+<p>{ <a href="#top">Return to Top</a> }</p>
+<hr>
+<h1 id="a-idfeature-overviewafeature-overview"><a id="feature-overview"></a>Feature Overview</h1>
+<p>You can use the AWS Toolkit to interact with several AWS resources in various ways.</p>
+<p>These include the following:</p>
+<ul>
+<li><p>AWS serverless applications</p>
+</li>
+<li><p>AWS Lambda functions</p>
+</li>
+<li><p>AWS CloudFormation stacks</p>
+</li>
+<li><p>AWS Cloud Development Kit (AWS CDK) applications</p>
+</li>
+<li><p>Amazon EventBridge schemas</p>
+</li>
+<li><p>Amazon Elastic Container Service (Amazon ECS) task definition files</p>
+</li>
+<li><p>AWS Step Functions state machines</p>
+</li>
+</ul>
+<p>See <a href="#features">Features</a> below for high-level details, or jump right into the <a href="https://docs.aws.amazon.com/console/toolkit-for-vscode/welcome"><em>AWS Toolkit for Visual Studio Code User Guide</em></a>.</p>
+<p>{ <a href="#contents">Return to Contents</a> } or { <a href="#top">Return to Top</a> }</p>
+<hr>
+<h1 id="a-idadditional-setup-stepsasetup"><a id="additional-setup-steps"></a>Setup</h1>
+<p>To access most features of the AWS Toolkit, you must complete the steps defined in the <a href="https://docs.aws.amazon.com/console/toolkit-for-vscode/getting-started">Setting Up</a> topic of the user guide.</p>
+<p>These steps include the following:</p>
+<ol>
+<li>Create an AWS account (see the <a href="https://docs.aws.amazon.com/console/toolkit-for-vscode/setup-toolkit#setup-prereq">Prerequisites</a> in the user guide and also these <a href="https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/">additional details</a>)</li>
+<li>Create and configure a set of AWS credentials (see <a href="https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/establish-credentials.html">Establishing Credentials</a> in the user guide)</li>
+<li>Connect the Toolkit to AWS using those credentials (see <a href="https://docs.aws.amazon.com/console/toolkit-for-vscode/connect">Connecting to AWS</a> in the user guide)</li>
+</ol>
+<p>To use the Toolkit to develop <a href="https://aws.amazon.com/serverless/">serverless applications with AWS</a>, you must also <a href="https://docs.aws.amazon.com/console/toolkit-for-vscode/setup-toolchain">set up your toolchain</a> and do the following on the local machine where the Toolkit is installed:</p>
+<ol>
+<li>Install the AWS Command Line Interface (AWS CLI)</li>
+<li>Install and start Docker (also see this general information about <a href="https://docs.docker.com/install/">Docker</a>)</li>
+<li>Install the AWS SAM CLI</li>
+</ol>
+<p>For complete setup instructions for these three components, see <a href="https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html">Installing the AWS SAM CLI</a> in the <em>AWS Serverless Application Model (AWS SAM) Developer Guide</em>.</p>
+<p>{ <a href="#contents">Return to Contents</a> } or { <a href="#top">Return to Top</a> }</p>
+<hr>
+<h1 id="a-idfeaturesafeatures"><a id="features"></a>Features</h1>
+<ul>
+<li><a href="#sam-and-lambda">Serverless Applications, Lambda Functions, and CloudFormation Stacks</a></li>
+<li><a href="#cdk-apps">AWS CDK Applications</a></li>
+<li><a href="#eventbridge">Amazon EventBridge Schemas</a></li>
+<li><a href="#ecs-files">Amazon ECS Task Definition Files</a></li>
+<li><a href="#sfn-files">AWS Step Functions</a></li>
+</ul>
+<p>{ <a href="#contents">Return to Contents</a> } or { <a href="#top">Return to Top</a> }</p>
+<hr>
+<h2 id="a-idsam-and-lambdaaserverless-applications-lambda-functions-and-cloudformation-stacks"><a id="sam-and-lambda"></a>Serverless Applications, Lambda Functions, and CloudFormation Stacks</h2>
+<p>The AWS Toolkit enables you to develop <a href="https://aws.amazon.com/serverless/">AWS serverless applications</a> locally. It also enables you to do the following through the <a href="#ui-components-aws-expl">AWS Explorer</a>:</p>
+<ul>
+<li>Deploy your locally-developed AWS serverless applications to an AWS account, into an <a href="https://aws.amazon.com/cloudformation/">AWS CloudFormation</a> stack</li>
+<li>List and delete AWS CloudFormation stacks</li>
+<li>List, invoke, and delete <a href="https://aws.amazon.com/lambda/">AWS Lambda</a> functions</li>
+</ul>
+<p>The following example shows a highlight of this functionality.</p>
+<p>After you have <a href="https://docs.aws.amazon.com/console/toolkit-for-vscode/create-sam">created a serverless application</a>, you can locally run, debug, and further develop that application in the VS Code editor. For example:</p>
+<p><img src="!!EXTENSIONROOT!!/resources/marketplace/sam-configure-and-run-still-1.png" alt="Configure and Run 1"></p>
+<p>Take special note of the <em>CodeLenses</em> that enable you to run and debug the application locally.</p>
+<p>The status and results are shown in the <strong>OUTPUT</strong> panel when the <strong>AWS Toolkit</strong> output channel is selected.</p>
+<p><img src="!!EXTENSIONROOT!!/resources/marketplace/sam-configure-and-run-still-2.png" alt="Configure and Run 1"></p>
+<p>When you&#39;re satisfied, you can <a href="https://docs.aws.amazon.com/console/toolkit-for-vscode/deploy-serverless-app">deploy your application</a> to a CloudFormation stack and then <a href="https://docs.aws.amazon.com/console/toolkit-for-vscode/remote-lambda">run the Lambda function</a> on AWS.</p>
+<p>For full details, see the <a href="https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/aws-explorer.html">AWS Explorer</a> in the Toolkit&#39;s user guide.</p>
+<h4 id="additional-information-about-codelenses">Additional Information about CodeLenses</h4>
+<p>The functions that have Codelenses are those that use AWS Lambda-function handler syntax. A <em>handler</em> is a function that Lambda calls to start execution of a Lambda function. These CodeLenses enable you to locally run or debug the corresponding serverless application. CodeLens actions in the Toolkit include:</p>
+<ul>
+<li><strong>Configure</strong>, for specifying function configurations such as an event payload and environment variable overrides.</li>
+<li><strong>Run Locally</strong>, for running the function <em>without</em> debugging.</li>
+<li><strong>Debug Locally</strong>, for running the function <em>with</em> debugging.</li>
+</ul>
+<p>{ <a href="#features">Return to Features</a> } or { <a href="#top">Return to Top</a> }</p>
+<hr>
+<h2 id="a-idcdk-appsaaws-cdk-applications"><a id="cdk-apps"></a>AWS CDK Applications</h2>
+<p>The AWS Toolkit enables you to work with <a href="https://aws.amazon.com/cdk/">AWS Cloud Development Kit (AWS CDK)</a> applications. Using the <a href="#ui-components-cdk-expl">AWS CDK Explorer</a> on the Toolkit, you can view CDK applications within your Workspace that have been synthesized.</p>
+<p>Example:</p>
+<p><img src="!!EXTENSIONROOT!!/resources/marketplace/cdk-tree-view.png" alt="AWS CDK Tree View"></p>
+<p>For full details, see the <a href="https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/cdk-explorer.html">AWS CDK Explorer</a> in the Toolkit&#39;s user guide.</p>
+<p>{ <a href="#features">Return to Features</a> } or { <a href="#top">Return to Top</a> }</p>
+<hr>
+<h2 id="a-ideventbridgeaamazon-eventbridge-schemas"><a id="eventbridge"></a>Amazon EventBridge Schemas</h2>
+<p>The AWS Toolkit provides support for <a href="https://aws.amazon.com/eventbridge">Amazon EventBridge</a> schemas. Using the <a href="#ui-components-aws-expl">AWS Explorer</a> of the Toolkit, you can perform the following operations on these schemas:</p>
+<ul>
+<li>View an available schema</li>
+<li>Search for an available schema</li>
+<li>Generate code for an available schema</li>
+</ul>
+<p>Example:</p>
+<p><img src="!!EXTENSIONROOT!!/resources/marketplace/eventbridge-search.png" alt="View Amazon EventBridge Schemas"></p>
+<p>For full details, see <a href="https://docs.aws.amazon.com/console/toolkit-for-vscode/eventbridge-schemas">Working with Amazon EventBridge Schemas</a> in the Toolkit&#39;s user guide.</p>
+<p>{ <a href="#features">Return to Features</a> } or { <a href="#top">Return to Top</a> }</p>
+<hr>
+<h2 id="a-idecs-filesaamazon-ecs-task-definition-files"><a id="ecs-files"></a>Amazon ECS Task Definition Files</h2>
+<p>The AWS Toolkit provides support for <a href="https://aws.amazon.com/ecs">Amazon Elastic Container Service (Amazon ECS)</a>. With the Toolkit installed in VS Code, IntelliSense functionality is provided for Amazon ECS task-definition files that you are updating in the editor.</p>
+<p>Example:</p>
+<p><img src="!!EXTENSIONROOT!!/resources/marketplace/ecs-task-def-intellisense.png" alt="Amazon ECS IntelliSense for Task Definition Files"></p>
+<p>For full details, see <a href="https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/ecs.html">Working with Amazon Elastic Container Service</a> in the Toolkit&#39;s user guide.</p>
+<p>{ <a href="#features">Return to Features</a> } or { <a href="#top">Return to Top</a> }</p>
+<hr>
+<h2 id="a-idsfn-filesaaws-step-functions"><a id="sfn-files"></a>AWS Step Functions</h2>
+<p>The AWS Toolkit provides support for <a href="https://docs.aws.amazon.com/step-functions">AWS Step Functions</a>. With the Toolkit installed in VS Code, working with state machines is a more streamlined process.</p>
+<ul>
+<li>Create, update, execute, and download state machines.</li>
+<li>See live graph visualizations of your state machine.</li>
+<li>Take advantage of features such as code completion and validation, and code snippets.</li>
+</ul>
+<p>Example:</p>
+<p><img src="!!EXTENSIONROOT!!/resources/marketplace/sfn-state-machine.png" alt="AWS Step Functions"></p>
+<p>For full details, see <a href="https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/stepfunctions.html">Working with AWS Step Functions</a> in the Toolkit&#39;s user guide.</p>
+<p>{ <a href="#features">Return to Features</a> } or { <a href="#top">Return to Top</a> }</p>
+<hr>
+<h1 id="a-idaws-commandsaappendix-a-aws-commands"><a id="aws-commands"></a>Appendix A: AWS Commands</h1>
+<p>The AWS Toolkit has several features that you can access through the <a href="#open-command-palette">Command Palette</a> (select <strong>View</strong>, then <strong>Command Palette</strong>):</p>
+<table>
+<thead>
+<tr>
+<th align="left">AWS Command</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>AWS: Create Credentials Profile</strong></td>
+<td align="left">Creates an AWS credentials profile. For more information, see <a href="https://docs.aws.amazon.com/console/toolkit-for-vscode/setup-credentials">Setting Up Your AWS Credentials</a> in the user guide.</td>
+</tr>
+<tr>
+<td align="left"><strong>AWS: Connect to AWS</strong></td>
+<td align="left">Connects the Toolkit to an AWS account. For more information, see <a href="https://docs.aws.amazon.com/console/toolkit-for-vscode/connect">Connecting to AWS</a> in the user guide.</td>
+</tr>
+<tr>
+<td align="left"><strong>AWS: Create a new Step Functions state machine</strong></td>
+<td align="left">Generates a new Amazon States Language definition to use as the definition for a new Step Functions state machine. For more information, see <a href="https://docs.aws.amazon.com//toolkit-for-vscode/latest/userguide/bulding-stepfunctions.html#templates-stepfunctions">State Machine Templates</a> in the user guide.</td>
+</tr>
+<tr>
+<td align="left"><strong>AWS: Create New SAM Application</strong></td>
+<td align="left">Generates a set of code files for a new AWS serverless application. For more information, see <a href="https://docs.aws.amazon.com/console/toolkit-for-vscode/create-sam">Creating a Serverless Application</a> in the user guide.</td>
+</tr>
+<tr>
+<td align="left"><strong>AWS: Deploy SAM Application</strong></td>
+<td align="left">Deploys a local serverless application to an AWS account. For more information, see <a href="https://docs.aws.amazon.com/console/toolkit-for-vscode/deploy-serverless-app">Deploying a Serverless Application</a> in the user guide.</td>
+</tr>
+<tr>
+<td align="left"><strong>AWS: Detect SAM CLI</strong></td>
+<td align="left">Checks whether the Toolkit can communicate correctly with the AWS SAM CLI that is installed.</td>
+</tr>
+<tr>
+<td align="left"><strong>AWS: Focus on Explorer View</strong></td>
+<td align="left">Opens the <strong>AWS: Explorer</strong> Side Bar, which we will simply call <a href="#ui-components-aws-expl"><em>the <strong>AWS Explorer</strong></em></a>, and then moves the focus there.</td>
+</tr>
+<tr>
+<td align="left"><strong>AWS: Hide region from the Explorer</strong></td>
+<td align="left">Hides an AWS Region from the <strong>AWS Explorer</strong>.</td>
+</tr>
+<tr>
+<td align="left"><strong>AWS: Publish state machine to Step Functions</strong></td>
+<td align="left">Creates or updates a remote state machine using the local Amazon States Language definition file. For more information, see <a href="https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/bulding-stepfunctions.html#starting-stepfunctions">Work With State Machines in VS Code</a> in the user guide.</td>
+</tr>
+<tr>
+<td align="left"><strong>AWS: Render state machine graph</strong></td>
+<td align="left">Renders the state machine definition into a graph visualization. For more information, see <a href="https://docs.aws.amazon.com//toolkit-for-vscode/latest/userguide/bulding-stepfunctions.html#bulding-stepfunctions-visualizations">State Machine Graph Visualization</a> in the user guide.</td>
+</tr>
+<tr>
+<td align="left"><strong>AWS: Report an Issue</strong></td>
+<td align="left">In the <a href="https://github.com/aws/aws-toolkit-vscode">GitHub repository</a> for the Toolkit, opens the page to <a href="https://github.com/aws/aws-toolkit-vscode/issues/new/choose">create a new issue</a>.</td>
+</tr>
+<tr>
+<td align="left"><strong>AWS: Show region in the Explorer</strong></td>
+<td align="left">Displays an AWS Region in the <strong>AWS Explorer</strong>.</td>
+</tr>
+<tr>
+<td align="left"><strong>AWS: Sign out</strong></td>
+<td align="left">Disconnects the Toolkit from the currently-connected AWS account.</td>
+</tr>
+<tr>
+<td align="left"><strong>AWS: View AWS Toolkit Logs</strong></td>
+<td align="left">Displays log files that contain general Toolkit diagnostic information.</td>
+</tr>
+<tr>
+<td align="left"><strong>AWS: View Quick Start</strong></td>
+<td align="left">Open this quick-start guide.</td>
+</tr>
+<tr>
+<td align="left"><strong>AWS: View Documentation</strong></td>
+<td align="left">Opens the <a href="https://docs.aws.amazon.com/console/toolkit-for-vscode/welcome">user guide</a> for the Toolkit.</td>
+</tr>
+<tr>
+<td align="left"><strong>AWS: View Source on GitHub</strong></td>
+<td align="left">Opens the <a href="https://github.com/aws/aws-toolkit-vscode">GitHub repository</a> for the Toolkit.</td>
+</tr>
+</tbody></table>
+<p>{ <a href="#contents">Return to Contents</a> } or { <a href="#top">Return to Top</a> }</p>
+<hr>
+<h1 id="a-idget-helpaappendix-b-get-help"><a id="get-help"></a>Appendix B: Get Help</h1>
+<p>For additional details on how to use the AWS Toolkit, see the <a href="https://docs.aws.amazon.com/console/toolkit-for-vscode/welcome">user guide</a>.</p>
+<p>To report issues with the Toolkit or to propose Toolkit code changes, see the <a href="https://github.com/aws/aws-toolkit-vscode">aws/aws-toolkit-vscode</a> repository on GitHub.</p>
+<p>You can also <a href="https://aws.amazon.com/contact-us/">contact AWS</a> directly.</p>
+<p>{ <a href="#contents">Return to Contents</a> } or { <a href="#top">Return to Top</a> }</p>

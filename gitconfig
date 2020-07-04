@@ -25,3 +25,6 @@
 	smudge = git-lfs smudge -- %f
 [include]
   path = ~/.gitconfig_local
+[user]
+	name = Michael Wolber
+	email = mwolber@gmx.de

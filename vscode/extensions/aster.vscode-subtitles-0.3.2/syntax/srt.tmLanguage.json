@@ -1,0 +1,139 @@
+{
+    "id": "srt",
+    "version": "v0.3.2",
+    "name": "Subtitle",
+    "scopeName": "source.subrip",
+    "fileTypes": [
+        "srt",
+        "subrip"
+    ],
+    "uuid": "645230de-6f9d-4818-a3de-fefccaa4eaa7",
+    "information_for_contributors": [
+        "aster: 19260817@qq.com"
+    ],
+    "patterns": [
+        {
+            "match": "^([1-9][0-9]*)$",
+            "name": "variable.other.readwrite.subrip"
+        },
+        {
+            "match": "^(\\d{2}:[0-5][0-9]:[0-5][0-9],\\d{3}) (-->) (\\d{2}:[0-5][0-9]:[0-5][0-9],\\d{3})$",
+            "captures": {
+                "1": {
+                    "name": "constant.other.time.subrip"
+                },
+                "2": {
+                    "name": "keyword.operator.assignment.subrip"
+                },
+                "3": {
+                    "name": "constant.other.time.subrip"
+                }
+            }
+        },
+        {
+            "begin": ".",
+            "end": "(\n\r|\n)",
+            "name": "string.literal.subrip",
+            "patterns": [
+                {
+                    "match": "(<b>)(.*?)(<\\/b>)",
+                    "captures": {
+                        "1": {
+                            "name": "entity.name.tag.html"
+                        },
+                        "2": {
+                            "name": "markup.bold.markdown"
+                        },
+                        "3": {
+                            "name": "entity.name.tag.html"
+                        }
+                    }
+                },
+                {
+                    "match": "(\\{b\\})(.*?)(\\{\\/b\\})",
+                    "captures": {
+                        "1": {
+                            "name": "entity.name.tag.html"
+                        },
+                        "2": {
+                            "name": "markup.bold.markdown"
+                        },
+                        "3": {
+                            "name": "entity.name.tag.html"
+                        }
+                    }
+                },
+                {
+                    "match": "(<i>)(.*?)(<\\/i>)",
+                    "captures": {
+                        "1": {
+                            "name": "entity.name.tag.html"
+                        },
+                        "2": {
+                            "name": "markup.italic.markdown"
+                        },
+                        "3": {
+                            "name": "entity.name.tag.html"
+                        }
+                    }
+                },
+                {
+                    "match": "(\\{i\\})(.*?)(\\{\\/i\\})",
+                    "captures": {
+                        "1": {
+                            "name": "entity.name.tag.html"
+                        },
+                        "2": {
+                            "name": "markup.italic.markdown"
+                        },
+                        "3": {
+                            "name": "entity.name.tag.html"
+                        }
+                    }
+                },
+                {
+                    "match": "(<u>)(.*?)(<\\/u>)",
+                    "captures": {
+                        "1": {
+                            "name": "entity.name.tag.html"
+                        },
+                        "2": {
+                            "name": "markup.underline.markdown"
+                        },
+                        "3": {
+                            "name": "entity.name.tag.html"
+                        }
+                    }
+                },
+                {
+                    "match": "(\\{u\\})(.*?)(\\{\\/u\\})",
+                    "captures": {
+                        "1": {
+                            "name": "entity.name.tag.html"
+                        },
+                        "2": {
+                            "name": "markup.underline.markdown"
+                        },
+                        "3": {
+                            "name": "entity.name.tag.html"
+                        }
+                    }
+                },
+                {
+                    "match": "(<font.*>)(.*?)(<\\/font>)",
+                    "captures": {
+                        "1": {
+                            "name": "entity.name.tag.html"
+                        },
+                        "2": {
+                            "name": "markup.font.markdown"
+                        },
+                        "3": {
+                            "name": "entity.name.tag.html"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

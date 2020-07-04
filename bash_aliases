@@ -44,6 +44,9 @@ fi
    alias df='df -h'
    alias du='du -h'
 
+    # pcat src highlighting, do `brew install pygments`first
+    alias pcat='pygmentize -f terminal256 -O style=monokai -g'
+
    alias bluetoothreload='sudo killall -9 blued && sleep 6 && launchctl start com.apple.blued'
    alias encmount='encfs ~/Documents/WolbiSync/mwolber/Documents/private.enc ~/Documents/\ private -- -o volname=" private" && open ~/Documents/\ private/'
    calc() {

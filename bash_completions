@@ -77,3 +77,7 @@ complete -f -X '!*.go' 8g 6g 5g gofmt gccgo
 #+ (this will allow completions like 'ls --color=auto' to work correctly).
 
 COMP_WORDBREAKS=${COMP_WORDBREAKS/=/}
+
+
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc"
+source "/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc"

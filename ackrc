@@ -12,5 +12,5 @@
 --color
 
 #add typescript filetype
---type-set=ts:ext:ts
---type-set=tsdef:match:/.+\.d\.ts/
+#--type-set=ts:ext:ts
+#--type-set=tsdef:match:/.+\.d\.ts/

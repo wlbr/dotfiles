@@ -1,0 +1,14 @@
+image: node:12-slim
+
+stages:
+  - publish
+
+publish:
+  stage: publish
+  script:
+    - npm install
+    - npm install -g vsce
+    - vsce publish -p $AZURE_ACCESS_TOKEN
+  when: manual
+  only:
+    - tags
