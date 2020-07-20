@@ -118,7 +118,7 @@
 	},
 	"dependencies": {
 		"chokidar": "^1.7.0",
-		"lodash": "^4.17.4",
+		"lodash": "^4.17.19",
 		"ws": "^1.1.1"
 	},
 	"__metadata": {
