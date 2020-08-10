@@ -39,6 +39,10 @@ fi
    alias pgstart='postgres -D /usr/local/var/postgres'
    alias inkscape="/Applications/Tools/Inkscape.app/Contents/Resources/bin/inkscape"
    alias tvbrowser="cd /Applications/Netz/TV-Browser.app/Contents/Resources && java --add-modules=ALL-SYSTEM -Dpropertiesfile=osx.properties -Xmx512M -jar ../Java/tvbrowser.jar"
+   alias cscfg="code '/Users/mwolber/Library/Application Support/Steam/userdata/1363214/730/local/cfg/mw.cfg'"
+   #alias csshots="open '/Users/mwolber/Library/Application Support/Steam/steamapps/common/Counter-Strike Global Offensive/csgo/screenshots'"
+   alias csshots="open '/Users/mwolber/Library/Application Support/Steam/userdata/1363214/760/remote/730/screenshots/'"
+   alias csdir="open '/Users/mwolber/Library/Application Support/Steam/steamapps/common/Counter-Strike Global Offensive/csgo/'"
 
    # Default to human readable figures
    alias df='df -h'
@@ -48,7 +52,7 @@ fi
     alias pcat='pygmentize -f terminal256 -O style=monokai -g'
 
    alias bluetoothreload='sudo killall -9 blued && sleep 6 && launchctl start com.apple.blued'
-   alias encmount='encfs ~/Documents/WolbiSync/mwolber/Documents/private.enc ~/Documents/\ private -- -o volname=" private" && open ~/Documents/\ private/'
+   alias encmount='encfs ~/Documents/WolbiSync/mwolber/Documents/private.enc ~/Documents/private/\ private -- -o volname=" private" && open ~/Documents/private/\ private/'
    calc() {
        CALCLINE=`echo "$*" | sed "s/,/./g"`
        RESULT=`echo "$CALCLINE"| bc`

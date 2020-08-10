@@ -8,11 +8,10 @@ export GOBIN=${GOPATH}/bin
 #export GOOS=darwin
 PATH="${PATH}:${GOBASE}/go/bin:${GOBASE}/packages/bin"
 
-GOGITHUBWORKSPACE="$HOME/Library/golang/packages/src/github.com/wlbr"
-GOSCRUMLRWORKSPACE="$HOME/Library/golang/packages/src/bitbucket.org/scrumlr"
-GITLABWORKSPACE="$HOME/Library/golang/packages/src/gitlab.inovex.de/mwolber"
-SMYLEWORKSPACE="$HOME/Documents/src/smyle"
+GOGITHUBWORKSPACE="$HOME/Documents/src/wlbr"
 INOVEXWORKSPACE="$HOME/Documents/src/inovex"
+ERGOWORKSPACE="$HOME/Documents/src/ergo"
+SMYLEWORKSPACE="$HOME/Documents/src/smyle"
 
 
 
@@ -29,13 +28,13 @@ cdw() {
 	if [ -d "${GOGITHUBWORKSPACE}/$1" ]; then
 		WORKSPACE=${GOGITHUBWORKSPACE}
 		WORKSPACENAME=GOSRC
-	elif [ -d "${GOSCRUMLRWORKSPACE}/$1" ]; then
-		WORKSPACE=${GOSCRUMLRWORKSPACE}
-		WORKSPACENAME=SCRUMLR
+	elif [ -d "${ERGOWORKSPACE}/$1" ]; then
+		WORKSPACE=${ERGOWORKSPACE}
+		WORKSPACENAME=ERGO
 	elif [ -d "${GITLABWORKSPACE}/$1" ]; then
 		WORKSPACE=${GITLABWORKSPACE}
 		WORKSPACENAME=GITLAB
-  	elif [ -d "${INOVEXWORKSPACE}/$1" ]; then
+  elif [ -d "${INOVEXWORKSPACE}/$1" ]; then
 		WORKSPACE=${INOVEXWORKSPACE}
 		WORKSPACENAME=INOVEX
 	elif [ -d "${SMYLEWORKSPACE}/$1" ]; then

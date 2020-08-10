@@ -4,10 +4,10 @@
 [color]
 	ui = auto
 [core]
-	excludesfile = /Users/mwolber/.gitignore_global
+	excludesfile = /Users/mwolber/Documents/src/dotfiles/gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+	path = 
 [merge]
 	tool = /Applications/Tools/p4merge.app/Contents/MacOS/p4merge
 [mergetool "sourcetree"]

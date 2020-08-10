@@ -1,0 +1,58 @@
+{
+    "id": "lrc",
+    "version": "v0.4.0",
+    "name": "Lyric",
+    "scopeName": "source.lyric",
+    "fileTypes": [
+        "lrc",
+        "lyric"
+    ],
+    "uuid": "ac7e1470-6d3a-457c-8b5b-bf44f6da3ed2",
+    "information_for_contributors": [
+        "aster: 19260817@qq.com"
+    ],
+    "patterns": [
+        {
+            "begin": "\\[([0-5][0-9]:[0-5][0-9]\\.[0-9]{1,4})\\]",
+            "beginCaptures": {
+                "1": {
+                    "name": "constant.other.time.lyric"
+                }
+            },
+            "end": "(.*)[\\n\\r]+",
+            "endCaptures": {
+                "1": {
+                    "name": "string.literal.lyric"
+                }
+            }
+        },
+        {
+            "match": "(\\[)([a-zA-Z].*)(:)(.*)(\\])",
+            "captures": {
+                "1": {
+                    "name": "punctuation.definition.meta.lyric"
+                },
+                "2": {
+                    "name": "entity.name.function.lyric"
+                },
+                "3": {
+                    "name": "punctuation.definition.split.lyric"
+                },
+                "4": {
+                    "name": "support.type.property-name"
+                },
+                "5": {
+                    "name": "punctuation.definition.meta.lyric"
+                }
+            }
+        },
+        {
+            "match": "(.*)",
+            "captures": {
+                "1": {
+                    "name": "invalid.illegal.lyric"
+                }
+            }
+        }
+    ]
+}
