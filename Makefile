@@ -6,7 +6,7 @@ SHELL=/bin/bash
 .ONESHELL:
 .PHONY: all move link
 
-dfiles:=ackrc bashrc bash_aliases bash_completions bash_golang bash_specials bash_vpn ccl-init.lisp ccl-hemlock-fixes.lisp editorconfig gitconfig gitignore_global profile stCommitMsg vscode
+dfiles:=ackrc bashrc bash_aliases bash_completions bash_golang bash_specials bash_vpn ccl-init.lisp ccl-hemlock-fixes.lisp editorconfig gitconfig gitignore_global profile stCommitMsg
 timestamp:=$(shell date -u '+%Y-%m-%d_%I:%M:%S_UTC')
 wd:=$(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 
