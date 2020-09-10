@@ -7,7 +7,7 @@
 	excludesfile = /Users/mwolber/Documents/src/dotfiles/gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [merge]
 	tool = /Applications/Tools/p4merge.app/Contents/MacOS/p4merge
 [mergetool "sourcetree"]
@@ -23,8 +23,10 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
-[include]
-  path = ~/.gitconfig_local
 [user]
 	name = Michael Wolber
 	email = mwolber@gmx.de
+[include]
+  path = ~/.gitconfig_local
+[http]
+	cookiefile = /Users/mwolber/.gitcookies
