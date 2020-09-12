@@ -6,7 +6,8 @@ export GOPATH=${GOBASE}/packages
 export GOBIN=${GOPATH}/bin
 #export GOARCH=amd64
 #export GOOS=darwin
-PATH="${PATH}:${GOBASE}/go/bin:${GOBASE}/packages/bin"
+addPath "${GOBASE}/go/bin"
+addPath "${GOBASE}/packages/bin"
 
 GOGITHUBWORKSPACE="$HOME/Documents/src/wlbr"
 INOVEXWORKSPACE="$HOME/Documents/src/inovex"

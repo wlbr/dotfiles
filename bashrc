@@ -123,6 +123,21 @@ fi
 # Some example functions
 # function settitle() { echo -ne "\e]2;$@\a\e]1;$@\a"; }
 
+addPath() {
+  #addPath adds a new pathcomponten to $PATH avoiding duplicates
+   IFS=':' read -r -a pcomponents <<< "$PATH"
+   FOUND=0
+   for i in "${!pcomponents[@]}"
+      do if [ x"${pcomponents[$i]}" == x"$1" ]; then
+        FOUND=1
+      fi
+   done
+   if [ x$FOUND == x0 ]; then
+     export PATH=$PATH:$1
+   fi
+}
+
+
 if [ -e ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
