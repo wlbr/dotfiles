@@ -124,7 +124,7 @@ fi
 # function settitle() { echo -ne "\e]2;$@\a\e]1;$@\a"; }
 
 addPath() {
-  #addPath adds a new pathcomponten to $PATH avoiding duplicates
+  #addPath adds a new pathcomponent to $PATH avoiding duplicates
    IFS=':' read -r -a pcomponents <<< "$PATH"
    FOUND=0
    for i in "${!pcomponents[@]}"
