@@ -10,6 +10,7 @@ addPath "${GOBASE}/go/bin"
 addPath "${GOBASE}/packages/bin"
 
 GOGITHUBWORKSPACE="$HOME/Documents/src/wlbr"
+KIFWORKSPACE="$HOME/Documents/src/planetkif"
 INOVEXWORKSPACE="$HOME/Documents/src/inovex"
 ERGOWORKSPACE="$HOME/Documents/src/ergo"
 SMYLEWORKSPACE="$HOME/Documents/src/smyle"
@@ -29,6 +30,9 @@ cdw() {
 	if [ -d "${GOGITHUBWORKSPACE}/$1" ]; then
 		WORKSPACE=${GOGITHUBWORKSPACE}
 		WORKSPACENAME=GITHUB
+  elif [ -d "${KIFWORKSPACE}/$1" ]; then
+		WORKSPACE=${KIFWORKSPACE}
+		WORKSPACENAME=KIF
 	elif [ -d "${ERGOWORKSPACE}/$1" ]; then
 		WORKSPACE=${ERGOWORKSPACE}
 		WORKSPACENAME=ERGO

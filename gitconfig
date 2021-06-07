@@ -7,11 +7,11 @@
 	excludesfile = /Users/mwolber/Documents/src/dotfiles/gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+	path = 
 [merge]
 	tool = /Applications/Tools/p4merge.app/Contents/MacOS/p4merge
 [mergetool "sourcetree"]
-	cmd = /Applications/Netz/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/Tools/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [push]
 	default = simple
@@ -30,3 +30,5 @@
   path = ~/.gitconfig_local
 [http]
 	cookiefile = /Users/mwolber/.gitcookies
+[pull]
+	rebase = false

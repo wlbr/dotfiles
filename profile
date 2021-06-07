@@ -29,3 +29,4 @@ PATH=".:${PATH}:/usr/local/sbin:${GEMPATH}/bin"
 
 # test -r /sw/bin/init.sh && . /sw/bin/init.sh
 
+export PATH="/usr/local/opt/node@14/bin:$PATH"
