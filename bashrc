@@ -1,3 +1,8 @@
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the start of this file.
+[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
+#### END FIG ENV VARIABLES ####
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -94,9 +99,12 @@ esac
 if [ -f /usr/local/etc/bash_completion ]; then
 	echo loading bash completion...
 	. /usr/local/etc/bash_completion
-	if [ -e ~/.bash.completions ]; then
-		. ~/.bash.completions
-	fi
+	elif [ -e ~/.bash.completions ]; then
+		echo loading bash completion...
+	  . ~/.bash.completions
+    elif [ -e /opt/homebrew/etc/profile.d/bash_completion.sh ]; then
+	    echo loading bash completion...
+		  . /opt/homebrew/etc/profile.d/bash_completion.sh
 else
 	echo No bash_completion.
 fi
@@ -137,6 +145,9 @@ addPath() {
    fi
 }
 
+if [ -e ~/.bcrc ]; then
+	export BC_ENV_ARGS=~/.bcrc
+fi
 
 if [ -e ~/.bash_aliases ]; then
 	. ~/.bash_aliases
@@ -145,3 +156,4 @@ fi
 if [ -e ~/.bash_golang ]; then
 	. ~/.bash_golang
 fi
+

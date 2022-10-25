@@ -13,7 +13,10 @@ GOGITHUBWORKSPACE="$HOME/Documents/src/wlbr"
 KIFWORKSPACE="$HOME/Documents/src/planetkif"
 INOVEXWORKSPACE="$HOME/Documents/src/inovex"
 ERGOWORKSPACE="$HOME/Documents/src/ergo"
+PRETTLWORKSPACE="$HOME/Documents/src/prettl"
 SMYLEWORKSPACE="$HOME/Documents/src/smyle"
+CURALIEWORKSPACE="$HOME/Documents/src/curalie"
+CBCWORKSPACE="$HOME/Documents/src/cbc"
 GOCONTRIBWORKSPACE="$HOME/Documents/src/go/src"
 
 
@@ -30,25 +33,34 @@ cdw() {
 	if [ -d "${GOGITHUBWORKSPACE}/$1" ]; then
 		WORKSPACE=${GOGITHUBWORKSPACE}
 		WORKSPACENAME=GITHUB
-  elif [ -d "${KIFWORKSPACE}/$1" ]; then
+     elif [ -d "${KIFWORKSPACE}/$1" ]; then
 		WORKSPACE=${KIFWORKSPACE}
 		WORKSPACENAME=KIF
-	elif [ -d "${ERGOWORKSPACE}/$1" ]; then
+     elif [ -d "${ERGOWORKSPACE}/$1" ]; then
 		WORKSPACE=${ERGOWORKSPACE}
 		WORKSPACENAME=ERGO
-	elif [ -d "${GITLABWORKSPACE}/$1" ]; then
+     elif [ -d "${PRETTLWORKSPACE}/$1" ]; then
+		WORKSPACE=${PRETTLWORKSPACE}
+		WORKSPACENAME=PRETTL
+     elif [ -d "${GITLABWORKSPACE}/$1" ]; then
 		WORKSPACE=${GITLABWORKSPACE}
 		WORKSPACENAME=GITLAB
-  elif [ -d "${INOVEXWORKSPACE}/$1" ]; then
+     elif [ -d "${INOVEXWORKSPACE}/$1" ]; then
 		WORKSPACE=${INOVEXWORKSPACE}
 		WORKSPACENAME=INOVEX
-	elif [ -d "${SMYLEWORKSPACE}/$1" ]; then
+     elif [ -d "${SMYLEWORKSPACE}/$1" ]; then
 		WORKSPACE=${SMYLEWORKSPACE}
 		WORKSPACENAME=SMYLE
-  elif [ -d "${GOCONTRIBWORKSPACE}/$1" ]; then
+     elif [ -d "${CURALIEWORKSPACE}/$1" ]; then
+		WORKSPACE=${CURALIEWORKSPACE}
+		WORKSPACENAME=CURALIE
+     elif [ -d "${CBCWORKSPACE}/$1" ]; then
+		WORKSPACE=${CBCWORKSPACE}
+		WORKSPACENAME=CBC
+     elif [ -d "${GOCONTRIBWORKSPACE}/$1" ]; then
 		WORKSPACE=${GOCONTRIBWORKSPACE}
 		WORKSPACENAME=GOCONTRIB
-	else
+	 else
 		WORKSPACENAME=NONE
 	fi
 	if [ ${WORKSPACENAME} != "NONE" ]; then
