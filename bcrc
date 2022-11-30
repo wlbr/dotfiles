@@ -1,0 +1,18 @@
+v=19
+
+define brutto(n) {
+    scale=2
+    b=n+n*v/100
+    return (b)
+ }
+
+define netto(b) {
+    scale=2
+    n=b/(1+v/100)
+    return (n)
+ }
+
+define perco(x,y) {
+    p=y*100/x
+    return (p)
+ }
