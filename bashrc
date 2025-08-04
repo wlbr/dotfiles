@@ -1,8 +1,3 @@
-
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the start of this file.
-[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
-#### END FIG ENV VARIABLES ####
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -40,9 +35,20 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
+
+# suppress OSX bash deprecation message
+if [ `uname` == "Darwin" ]; then
+  export BASH_SILENCE_DEPRECATION_WARNING=1
+fi
+
+
 # COLORS
 # ######
-NC='\033[0m'
+NORMAL='\033[0m'
+BOLD='\033[1m'
+FAINTED='\033[2m'
+ITALICS='\033[3m'
+UNDERLINED='\033[4m'
 BLACK='\033[0;30m'
 WHITE='\033[0;37m'
 RED='\033[0;31m'
@@ -73,7 +79,8 @@ else
 	case "$HOST" in
 	$WORKSTATION)
 		#no hostname on workstation
-		PS1='\w $ '
+		#PS1='\w \[\033[1m\]\$ \[\033[0m\]'
+		PS1="\w \[${BOLD}\]\$ \[${NORMAL}\]"
 		;;
 	*)
 		PS1='\[\033[32m\]\u@\h\[\033[00m\]:\[\033[34m\]\w\[\033[00m\]\$ '
@@ -132,7 +139,7 @@ fi
 # function settitle() { echo -ne "\e]2;$@\a\e]1;$@\a"; }
 
 addPath() {
-  #addPath adds a new pathcomponent to $PATH avoiding duplicates
+  #addPath appends a new pathcomponent to $PATH avoiding duplicates
    IFS=':' read -r -a pcomponents <<< "$PATH"
    FOUND=0
    for i in "${!pcomponents[@]}"
@@ -144,6 +151,52 @@ addPath() {
      export PATH=$PATH:$1
    fi
 }
+
+insertPath() {
+  #insertPath adds a new pathcomponent to the front of $PATH avoiding duplicates
+   IFS=':' read -r -a pcomponents <<< "$PATH"
+   FOUND=0
+   for i in "${!pcomponents[@]}"
+      do if [ x"${pcomponents[$i]}" == x"$1" ]; then
+        FOUND=1
+      fi
+   done
+   if [ x$FOUND == x0 ]; then
+     export PATH=$1:$PATH
+   fi
+}
+
+removePath() {
+  #insertPath adds a new pathcomponent to the front of $PATH avoiding duplicates
+   IFS=':' read -r -a pcomponents <<< "$PATH"
+   CHANGED=0
+   NEWPATH=""
+   for i in "${!pcomponents[@]}"
+      do if [ x"${pcomponents[$i]}" != x"$1" ]; then
+        if [ x$NEWPATH == x"" ]; then
+          NEWPATH=${pcomponents[$i]}
+        else
+          NEWPATH=$NEWPATH:${pcomponents[$i]}
+        fi
+        else
+          CHANGED=1
+      fi
+   done
+   if [ x$CHANGED == x1 ]; then
+     export PATH=$NEWPATH
+   fi
+}
+
+precedeEtcPathsDfile() {
+  pathComponents=$(cat "$1")
+  for pathComponent in $pathComponents
+   do
+     removePath $pathComponent
+     insertPath $pathComponent
+  done
+}
+
+precedeEtcPathsDfile /etc/paths.d/Homebrew
 
 if [ -e ~/.bcrc ]; then
 	export BC_ENV_ARGS=~/.bcrc
@@ -157,3 +210,7 @@ if [ -e ~/.bash_golang ]; then
 	. ~/.bash_golang
 fi
 
+
+
+
+#source ~/.iterm2_shell_integration.bash
