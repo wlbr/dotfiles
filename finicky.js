@@ -27,7 +27,7 @@ export default {
     },
     {
       // Open links in Slack in Brave Work
-      match: ({ opener }) =>
+      match: () =>
         ["com.tinyspeck.slackmacgap"].includes(opener.bundleId),
       browser: {
         name: "Brave Browser",
@@ -44,7 +44,7 @@ export default {
     },
     {
       // Open links in Teams and Outlook in Brave Customer
-      match: ({ opener }) =>
+      match: () =>
         ["com.microsoft.teams", "com.microsoft.teams2", "com.microsoft.Outlook"].includes(opener.bundleId),
       browser: {
         name: "Brave Browser",
@@ -53,7 +53,7 @@ export default {
     },
     {
       // Open links in Discord and Mail in Brave Privat
-      match: ({ opener }) =>
+      match: () =>
           ["com.hnc.Discord", "com.apple.mail"].includes(opener.bundleId),
       browser: {
         name: "Brave Browser",
