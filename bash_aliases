@@ -36,7 +36,6 @@ fi
    alias xemacs='/Applications/Tools/Aquamacs.app/Contents/MacOS/Aquamacs'
    alias top='top -o -cpu'
    alias bc='bc -l'
-   alias code='code-insiders'
    alias pgstart='postgres -D /usr/local/var/postgres'
    alias inkscape="/Applications/Tools/Inkscape.app/Contents/Resources/bin/inkscape"
    alias tvbrowser="cd /Applications/Netz/TV-Browser.app/Contents/Resources && java --add-modules=ALL-SYSTEM -Dpropertiesfile=osx.properties -Xmx512M -jar ../Java/tvbrowser.jar"
@@ -62,6 +61,11 @@ fi
    alias mkvenv='python3 -m venv `pwd`'
 
    alias beep="echo -ne '\007'"
+
+
+   if [ `hostname`x == "wlbrx" ]; then
+     alias code='code-insiders'
+   fi
 
    calc() {
        CALCLINE=`echo "$*" | sed -u "s/\.//g" | sed -u "s/,/\./g"`
