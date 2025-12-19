@@ -196,6 +196,10 @@ precedeEtcPathsDfile() {
   done
 }
 
+if [ -e /opt/homebrew/opt/postgresql@18/bin ]; then
+ addPath /opt/homebrew/opt/postgresql@18/bin
+fi
+
 precedeEtcPathsDfile /etc/paths.d/Homebrew
 
 if [ -e ~/.bcrc ]; then

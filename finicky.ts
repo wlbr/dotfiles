@@ -14,6 +14,8 @@ export default {
   defaultBrowser: "Brave Browser",
   options: {
     checkForUpdates: false,
+    keepRunning: false,
+    hideIcon: true,
   },
   handlers: [
     // handler,
@@ -38,7 +40,7 @@ export default {
     },
     {
       match: (url: URL, { opener }) => {
-        return url.host.includes("netrtl.com") || url.host.includes("rtl.de");
+        return url.host.includes("netrtl.com") || url.host.includes("rtl.de") || url.host.includes("rtl.com");
       },
       browser: {
         name: "Brave Browser",
