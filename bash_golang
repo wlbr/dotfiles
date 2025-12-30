@@ -1,7 +1,7 @@
 #export MANPATH=/opt/local/share/man:/usr/local/man:$MANPATH
 
 GOBASE=${HOME}/Library/golang
-GOWORKSPACE=$HOME/Documents/dev/go
+GOWORKSPACE=$HOME/Documents/src/go
 export GOPATH=${GOBASE}/packages
 export GOBIN=${GOPATH}/bin
 #export GOARCH=amd64

@@ -51,8 +51,8 @@ fi
    # pcat src highlighting, do `brew install pygments` first
    alias pcat='pygmentize -f terminal256 -O style=monokai -g'
 
-   alias docker='podman'
-   alias docker-compose='podman-compose'
+   #alias docker='podman'
+   #alias docker-compose='podman-compose'
    alias ollama='OLLAMA_FLASH_ATTENTION="1" OLLAMA_KV_CACHE_TYPE="q8_0" /opt/homebrew/opt/ollama/bin/ollama'
 
    alias bluetoothreload='sudo killall -9 blued && sleep 6 && launchctl start com.apple.blued'
