@@ -6,7 +6,10 @@ export GOPATH=${GOBASE}/packages
 export GOBIN=${GOPATH}/bin
 #export GOARCH=amd64
 #export GOOS=darwin
-addPath "${GOBASE}/go/bin"
+if [ -e "/opt/homebrew/bin/go"  ]; then
+  addPath "/opt/homebrew/bin/go"
+  else addPath "${GOBASE}/go/bin"
+fi
 addPath "${GOBASE}/packages/bin"
 
 GOGITHUBWORKSPACE="$HOME/Documents/src/wlbr"
