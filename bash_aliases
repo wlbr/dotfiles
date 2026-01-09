@@ -63,7 +63,7 @@ fi
    alias beep="echo -ne '\007'"
 
 
-   if [ `hostname`x == "wlbrx" ]; then
+   if [ `hostname -s`x == "wlbrx" ]; then
      alias code='code-insiders'
    fi
 
