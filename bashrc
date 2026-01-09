@@ -9,6 +9,7 @@
 [ xc == x$(echo "$-" | grep -o "c") ] && return
 
 umask 022
+
 if [ -e ~/.bash_specials ]; then
 	. ~/.bash_specials
 fi
@@ -167,16 +168,16 @@ insertPath() {
 }
 
 removePath() {
-  #insertPath adds a new pathcomponent to the front of $PATH avoiding duplicates
+  #removePath removes a pathcomponent from $PATH
    IFS=':' read -r -a pcomponents <<< "$PATH"
    CHANGED=0
    NEWPATH=""
    for i in "${!pcomponents[@]}"
       do if [ x"${pcomponents[$i]}" != x"$1" ]; then
-        if [ x$NEWPATH == x"" ]; then
+        if [ "x$NEWPATH" == x ]; then
           NEWPATH=${pcomponents[$i]}
         else
-          NEWPATH=$NEWPATH:${pcomponents[$i]}
+          NEWPATH="$NEWPATH":"${pcomponents[$i]}"
         fi
         else
           CHANGED=1
@@ -199,13 +200,10 @@ precedeEtcPathsDfile() {
 if [ -e /opt/homebrew/opt/postgresql@18/bin ]; then
  addPath /opt/homebrew/opt/postgresql@18/bin
 fi
-
 precedeEtcPathsDfile /etc/paths.d/Homebrew
-
 if [ -e ~/.bcrc ]; then
 	export BC_ENV_ARGS=~/.bcrc
 fi
-
 if [ -e ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
@@ -213,7 +211,6 @@ fi
 if [ -e ~/.bash_golang ]; then
 	. ~/.bash_golang
 fi
-
 
 
 
