@@ -133,6 +133,8 @@ if [ x$HOST == x$WORKSTATION ]; then
 	#export MANPATH=`manpath`
 fi
 
+export GREP_OPTIONS='--color=auto'
+
 # Functions
 # #########
 
