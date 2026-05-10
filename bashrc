@@ -222,9 +222,7 @@ fi
 # iTerm2 shell integration
 if [ -e ~/.iterm2_shell_integration.bash ]; then
 	. ~/.iterm2_shell_integration.bash
-fi  
-
-
+fi
 
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
