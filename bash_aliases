@@ -57,7 +57,6 @@ fi
 
    alias bluetoothreload='sudo killall -9 blued && sleep 6 && launchctl start com.apple.blued'
    alias encmount='encfs ~/Documents/WolbiSync/mwolber/Documents/private.enc ~/Documents/private/\ private -- -o volname=" private" && open ~/Documents/private/\ private/'
-   alias zed='zed-preview'
    alias mkvenv='python3 -m venv `pwd`'
 
    alias beep="echo -ne '\007'"
