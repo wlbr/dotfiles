@@ -11,7 +11,7 @@
 # enable color support of ls and also add handy aliases
 if [ "$TERM" != "dumb" ]; then
     #eval "`dircolors -b`"
-    if [ xDarwin == x`uname` ]; then
+    if [ xDarwin = x`uname` ]; then
       alias ls='ls -FGh'
      else alias ls='ls -Fh --color=auto --group-directories-first'
     fi
@@ -62,7 +62,7 @@ fi
    alias beep="echo -ne '\007'"
 
 
-   if [ `hostname -s|cut -f 1 -d '-'`x == "wlbrx" ]; then
+   if [ `hostname -s|cut -f 1 -d '-'`x = "wlbrx" ]; then
      alias code='code-insiders'
    fi
 

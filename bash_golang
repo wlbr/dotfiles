@@ -21,7 +21,7 @@ GOCONTRIBWORKSPACE="$HOME/Documents/src/go/src"
 
 WORKSPACENAME=NONE
 shrinkPath() {
-	if [ x${PWD#$1} == x${PWD} ]; then
+	if [ x${PWD#$1} = x${PWD} ]; then
 		echo ${PWD} | sed "s@$HOME@~@"
 	else
 		echo ${WORKSPACENAME}${PWD#$1}

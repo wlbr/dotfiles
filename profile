@@ -13,6 +13,7 @@ if [ -n "$BASH_VERSION" ]; then
     if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
     fi
+    test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 fi
 
 # set PATH so it includes user's private bin if it exists
@@ -29,14 +30,11 @@ PATH=".:${PATH}:/usr/local/sbin:${GEMPATH}/bin"
 
 # test -r /sw/bin/init.sh && . /sw/bin/init.sh
 
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
-
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/wolberm/.rd/bin:$PATH"
+export PATH="/Users/mwolber/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/mwolber/.lmstudio/bin"
 # End of LM Studio CLI section
-

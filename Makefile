@@ -6,7 +6,7 @@ SHELL=/bin/bash
 .ONESHELL:
 .PHONY: all move link
 
-dfiles:=ackrc bashrc bash_aliases bash_completions bash_golang bash_specials bash_vpn bcrc ccl-init.lisp ccl-hemlock-fixes.lisp editorconfig gitconfig gitignore_global profile stCommitMsg
+dfiles:=ackrc bashrc bash_aliases bash_completions bash_golang bash_specials bash_vpn bcrc ccl-init.lisp ccl-hemlock-fixes.lisp editorconfig gitconfig gitignore_global profile stCommitMsg zshrc
 timestamp:=$(shell date -u '+%Y-%m-%d_%I:%M:%S_UTC')
 wd:=$(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 
@@ -27,9 +27,8 @@ link:
 	@for dfile in $(dfiles); do
 		ln -s  $(wd)$$dfile ~/.$$dfile;
 	done
-
-
-
+	ln -s $(wd)profile ~/.zshenv
+	ln -s $(wd)bash_aliases ~/.zsh_aliases
 
 move:
 	mkdir -p bak/$(timestamp)

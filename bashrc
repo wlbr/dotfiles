@@ -6,7 +6,7 @@
 [ -z "$PS1" ] && return
 # On OSX, some Applications are silently starting a shell.
 # At least some of them can be identified by the c in $-
-[ xc == x$(echo "$-" | grep -o "c") ] && return
+[ xc = x$(echo "$-" | grep -o "c") ] && return
 
 umask 022
 
@@ -17,12 +17,16 @@ fi
 # don't put duplicate lines in the history. See bash(1) for more options
 export HISTCONTROL=ignoredups
 
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-shopt -s checkwinsize
+if  command -v shopt >/dev/null 2>&1
+then
 
-# Make bash append rather than overwrite the history on disk
-shopt -s histappend
+  # check the window size after each command and, if necessary,
+  # update the values of LINES and COLUMNS.
+  shopt -s checkwinsize
+
+  # Make bash append rather than overwrite the history on disk
+  shopt -s histappend
+fi
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
@@ -38,7 +42,7 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 
 # suppress OSX bash deprecation message
-if [ `uname` == "Darwin" ]; then
+if [ `uname` = "Darwin" ]; then
   export BASH_SILENCE_DEPRECATION_WARNING=1
 fi
 
@@ -73,8 +77,8 @@ LIGHTGRAY='\033[0;37m'
 #needs to be set in .bash.specials
 #export WORKSTATION=wlbr
 
-export HOST=$(hostname | cut -d . -f 1)
-if [ $USER == "root" ]; then
+export HOST=$(hostname | cut -d . -f 1|cut -d - -f 1)
+if [ $USER = "root" ]; then
 	PS1='\033[0;31m\u@\h\033[0m:\[\033[34m\]\w\[\033[0m\] # '
 else
 	case "$HOST" in
@@ -125,7 +129,7 @@ fi
 #fi
 
 #These variables will probably only be correct on your local workstation
-if [ x$HOST == x$WORKSTATION ]; then
+if [ x$HOST = x$WORKSTATION ]; then
 	# Some applications read the EDITOR variable to determine your favourite text
 	# editor. So uncomment the line below and enter the editor of your choice :-)
 	export EDITOR=vim
@@ -146,11 +150,11 @@ addPath() {
    IFS=':' read -r -a pcomponents <<< "$PATH"
    FOUND=0
    for i in "${!pcomponents[@]}"
-      do if [ x"${pcomponents[$i]}" == x"$1" ]; then
+      do if [ x"${pcomponents[$i]}" = x"$1" ]; then
         FOUND=1
       fi
    done
-   if [ x$FOUND == x0 ]; then
+   if [ x$FOUND = x0 ]; then
      export PATH=$PATH:$1
    fi
 }
@@ -215,7 +219,7 @@ if [ -e ~/.bash_golang ]; then
 fi
 
 if [ -e  /opt/homebrew/bin/python3 ]; then
-	pbin=$(brew --prefix python)/libexec/bin
+  pbin=$(brew --prefix python)/libexec/bin
   addPath $pbin
 fi
 
@@ -226,10 +230,9 @@ fi
 
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/wolberm/.rd/bin:$PATH"
+export PATH="/Users/mwolber/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/mwolber/.lmstudio/bin"
 # End of LM Studio CLI section
-
