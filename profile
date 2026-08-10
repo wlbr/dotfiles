@@ -31,6 +31,8 @@ PATH=".:${PATH}:/usr/local/sbin:${GEMPATH}/bin"
 # test -r /sw/bin/init.sh && . /sw/bin/init.sh
 
 
+. "$HOME/.local/bin/env"
+
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/mwolber/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
@@ -38,3 +40,10 @@ export PATH="/Users/mwolber/.rd/bin:$PATH"
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/mwolber/.lmstudio/bin"
 # End of LM Studio CLI section
+
+# Added by Antigravity CLI installer
+export PATH="/Users/wolberm/.local/bin:$PATH"
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/wolberm/.local/bin:$PATH"

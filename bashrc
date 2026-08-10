@@ -229,10 +229,3 @@ if [ -e ~/.iterm2_shell_integration.bash ]; then
 fi
 
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/mwolber/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/mwolber/.lmstudio/bin"
-# End of LM Studio CLI section
