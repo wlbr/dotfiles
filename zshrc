@@ -106,14 +106,9 @@ reducePath() {
   done
 }
 
-reducePath
-precedeEtcPathsDfile /etc/paths.d/Homebrew
-
-
 if [ -e /opt/homebrew/opt/postgresql@18/bin ]; then
  addPath /opt/homebrew/opt/postgresql@18/bin
 fi
-
 
 if [ -e  /opt/homebrew/bin/python3 ]; then
   pbin=$(brew --prefix python)/libexec/bin
@@ -125,4 +120,6 @@ if [ -e ~/.zsh_golang ]; then
 	. ~/.zsh_golang
 fi
 
+precedeEtcPathsDfile /etc/paths.d/Homebrew
 insertPath .
+reducePath
