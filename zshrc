@@ -112,8 +112,3 @@ if [ -e  /opt/homebrew/bin/python3 ]; then
   pbin=$(brew --prefix python)/libexec/bin
   addPath $pbin
 fi
-
-# iTerm2 shell integration
-if [ -e ~/.iterm2_shell_integration.bash ]; then
-	. ~/.iterm2_shell_integration.bash
-fi
