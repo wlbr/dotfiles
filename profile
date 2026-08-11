@@ -30,8 +30,10 @@ PATH=".:${PATH}:/usr/local/sbin:${GEMPATH}/bin"
 
 # test -r /sw/bin/init.sh && . /sw/bin/init.sh
 
+if [ -e ~/.local/bin/env ]; then
+	. ~/.local/bin/env
+fi
 
-. "$HOME/.local/bin/env"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/mwolber/.rd/bin:$PATH"
@@ -44,6 +46,3 @@ export PATH="$PATH:/Users/mwolber/.lmstudio/bin"
 # Added by Antigravity CLI installer
 export PATH="/Users/wolberm/.local/bin:$PATH"
 
-
-# Added by Antigravity CLI installer
-export PATH="/Users/wolberm/.local/bin:$PATH"
