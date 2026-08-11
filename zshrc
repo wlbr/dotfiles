@@ -130,6 +130,4 @@ precedeEtcPathsDfile /etc/paths.d/Homebrew
 insertPath .
 reducePath
 
-# Create a ZLE widget and bind it to /
-zle -N self-insert-dot-slash
-bindkey '/' self-insert-dot-slash
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
