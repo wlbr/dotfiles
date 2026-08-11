@@ -27,15 +27,10 @@ if [ -d ${HOME}/Documents/bin ] ; then
 fi
 
 GEMPATH=`gem env gempath | cut -d : -f 1`
-PATH=".:${PATH}:/usr/local/sbin:${GEMPATH}/bin"
+PATH="${PATH}:/usr/local/sbin:${GEMPATH}/bin"
 
 
 # test -r /sw/bin/init.sh && . /sw/bin/init.sh
-
-if [ -e ${HOME}/.local/bin/env ]; then
-	. ${HOME}/.local/bin/env
-fi
-
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="${HOME}/.rd/bin:$PATH"
