@@ -21,6 +21,12 @@ if [ -e ~/.zsh_aliases ]; then
 	. ~/.zsh_aliases
 fi
 
+if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+    autoload -Uz compinit && compinit -u
+    zstyle ':completion:*' squeeze-slashes true
+    zstyle ':completion:*' special-dirs true
+fi
 
 # Functions
 # #########
@@ -123,3 +129,7 @@ fi
 precedeEtcPathsDfile /etc/paths.d/Homebrew
 insertPath .
 reducePath
+
+# Create a ZLE widget and bind it to /
+zle -N self-insert-dot-slash
+bindkey '/' self-insert-dot-slash
