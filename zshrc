@@ -72,7 +72,7 @@ removePath() {
    NEWPATH=""
    for i in $pcomponents
       do if [ x"${i}" != x"$1" ]; then
-          if [ -e ${NEWPATH} ]; then
+          if [ -z {NEWPATH} ]; then
             NEWPATH="${i}"
            else
             NEWPATH="$NEWPATH":"${i}"
@@ -95,8 +95,8 @@ precedeEtcPathsDfile() {
   done
 }
 
-precedeEtcPathsDfile /etc/paths.d/Homebrew
 
+precedeEtcPathsDfile /etc/paths.d/Homebrew
 if [ -e /opt/homebrew/opt/postgresql@18/bin ]; then
  addPath /opt/homebrew/opt/postgresql@18/bin
 fi
