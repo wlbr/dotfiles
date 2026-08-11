@@ -24,6 +24,7 @@ fi
 if [ -e ~/.bcrc ]; then
 	export BC_ENV_ARGS=~/.bcrc
 fi
+
 if [ -e ~/.zsh_aliases ]; then
 	. ~/.zsh_aliases
 fi
