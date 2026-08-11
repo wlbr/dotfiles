@@ -99,8 +99,7 @@ precedeEtcPathsDfile() {
 reducePath() { 
   pcomponents=("${(@s[:])PATH}")
   for pathComponent in $pcomponents
-   do echo $pathComponent
-     removePath $pathComponent
+   do removePath $pathComponent
      if [ -e $pathComponent ]; then
        addPath $pathComponent
      fi
