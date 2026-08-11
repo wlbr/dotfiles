@@ -19,7 +19,6 @@ export HISTCONTROL=ignoredups
 
 if  command -v shopt >/dev/null 2>&1
 then
-
   # check the window size after each command and, if necessary,
   # update the values of LINES and COLUMNS.
   shopt -s checkwinsize
@@ -77,14 +76,12 @@ LIGHTGRAY='\033[0;37m'
 #needs to be set in .bash.specials
 #export WORKSTATION=wlbr
 
-export HOST=$(hostname | cut -d . -f 1|cut -d - -f 1)
+export HOST=$(hostname | cut -d . -f 1)
 if [ $USER = "root" ]; then
 	PS1='\033[0;31m\u@\h\033[0m:\[\033[34m\]\w\[\033[0m\] # '
 else
 	case "$HOST" in
-	$WORKSTATION)
-		#no hostname on workstation
-		#PS1='\w \[\033[1m\]\$ \[\033[0m\]'
+	${WORKSTATION}|${WORKSTATION}-2)
 		PS1="\w \[${BOLD}\]\$ \[${NORMAL}\]"
 		;;
 	*)
@@ -105,9 +102,6 @@ esac
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-#if [ -f /etc/bash_completion ]; then
-#    . /etc/bash_completion
-#fi
 if [ -f /usr/local/etc/bash_completion ]; then
 	echo loading bash completion...
 	. /usr/local/etc/bash_completion
@@ -203,10 +197,13 @@ precedeEtcPathsDfile() {
   done
 }
 
+precedeEtcPathsDfile /etc/paths.d/Homebrew
+
+
 if [ -e /opt/homebrew/opt/postgresql@18/bin ]; then
  addPath /opt/homebrew/opt/postgresql@18/bin
 fi
-precedeEtcPathsDfile /etc/paths.d/Homebrew
+
 if [ -e ~/.bcrc ]; then
 	export BC_ENV_ARGS=~/.bcrc
 fi
@@ -219,13 +216,11 @@ if [ -e ~/.bash_golang ]; then
 fi
 
 if [ -e  /opt/homebrew/bin/python3 ]; then
-  pbin=$(brew --prefix python)/libexec/bin
-  addPath $pbin
+  if [ $USER != "root" ]; then
+    pbin=$(brew --prefix python)/libexec/bin
+    addPath $pbin
+  fi
 fi
 
-# iTerm2 shell integration
-if [ -e ~/.iterm2_shell_integration.bash ]; then
-	. ~/.iterm2_shell_integration.bash
-fi
 
 

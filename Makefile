@@ -29,6 +29,7 @@ link:
 	done
 	ln -s $(wd)profile ~/.zshenv
 	ln -s $(wd)bash_aliases ~/.zsh_aliases
+	ln -s $(wd)bash_golang ~/.zsh_golang
 
 move:
 	mkdir -p bak/$(timestamp)
