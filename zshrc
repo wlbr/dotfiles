@@ -1,9 +1,11 @@
+
 source "${HOME}/.zgen/zgen.zsh"
 # if the init script doesn't exist
 if ! zgen saved; then
 
   # specify plugins here
   zgen load miekg/lean
+  zgen load agkozak/zsh-z
 
   # generate the init script from plugins above
   zgen save
@@ -26,6 +28,7 @@ if type brew &>/dev/null; then
     autoload -Uz compinit && compinit -u
     zstyle ':completion:*' squeeze-slashes true
     zstyle ':completion:*' special-dirs true
+    zstyle ':completion:*' menu select
 fi
 
 # Functions
@@ -102,7 +105,7 @@ precedeEtcPathsDfile() {
 
 
 
-reducePath() { 
+reducePath() {
   pcomponents=("${(@s[:])PATH}")
   for pathComponent in $pcomponents
    do removePath $pathComponent
