@@ -1,14 +1,15 @@
-
-source "${HOME}/.zgen/zgen.zsh"
+source "${HOME}/.zgenom/zgenom.zsh"
 # if the init script doesn't exist
-if ! zgen saved; then
+
+#to install zgenom: git clone https://github.com/jandamm/zgenom.git "${HOME}/.zgenom"
+if ! zgenom saved; then
 
   # specify plugins here
-  zgen load miekg/lean
-  zgen load agkozak/zsh-z
+  zgenom load miekg/lean
+  zgenom load agkozak/zsh-z
 
   # generate the init script from plugins above
-  zgen save
+  zgenom save
 fi
 
 if [ -e ~/.bash_specials ]; then
@@ -135,3 +136,5 @@ reducePath
 
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+#install iterm2 integration: curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
+source ~/.iterm2_shell_integration.zsh
