@@ -1,7 +1,9 @@
 source "${HOME}/.zgenom/zgenom.zsh"
 # if the init script doesn't exist
-
 #to install zgenom: git clone https://github.com/jandamm/zgenom.git "${HOME}/.zgenom"
+
+zgenom autoupdate
+
 if ! zgenom saved; then
 
   # specify plugins here
