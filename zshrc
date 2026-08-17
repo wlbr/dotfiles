@@ -6,9 +6,22 @@ zgenom autoupdate
 
 if ! zgenom saved; then
 
+
+  zgenom ohmyzsh
+
+  zgenom ohmyzsh plugins/git
+  zgenom ohmyzsh plugins/sudo
+  # just load the completions
+  zgenom ohmyzsh --completion plugins/docker-compose
+
   # specify plugins here
   zgenom load miekg/lean
   zgenom load agkozak/zsh-z
+
+  zgenom save
+
+  # Compile your zsh files
+  zgenom compile "$HOME/.zshrc"
 
   # generate the init script from plugins above
   zgenom save
