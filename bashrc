@@ -10,8 +10,8 @@
 
 umask 022
 
-if [ -e ~/.bash_specials ]; then
-	. ~/.bash_specials
+if [ -e ~/.shell_specials ]; then
+	. ~/.shell_specials
 fi
 
 # don't put duplicate lines in the history. See bash(1) for more options
@@ -207,12 +207,12 @@ fi
 if [ -e ~/.bcrc ]; then
 	export BC_ENV_ARGS=~/.bcrc
 fi
-if [ -e ~/.bash_aliases ]; then
-	. ~/.bash_aliases
+if [ -e ~/.shell_aliases ]; then
+	. ~/.shell_aliases
 fi
 
-if [ -e ~/.bash_golang ]; then
-	. ~/.bash_golang
+if [ -e ~/.shell_golang ]; then
+	. ~/.shell_golang
 fi
 
 if [ -e  /opt/homebrew/bin/python3 ]; then

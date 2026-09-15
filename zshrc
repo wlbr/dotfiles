@@ -27,16 +27,16 @@ if ! zgenom saved; then
   zgenom save
 fi
 
-if [ -e ~/.bash_specials ]; then
-	. ~/.bash_specials
+if [ -e ~/.shell_specials ]; then
+	. ~/.shell_specials
 fi
 
 if [ -e ~/.bcrc ]; then
 	export BC_ENV_ARGS=~/.bcrc
 fi
 
-if [ -e ~/.zsh_aliases ]; then
-	. ~/.zsh_aliases
+if [ -e ~/.shell_aliases ]; then
+	. ~/.shell_aliases
 fi
 
 if type brew &>/dev/null; then
@@ -141,8 +141,8 @@ if [ -e  /opt/homebrew/bin/python3 ]; then
 fi
 
 #needs addPath
-if [ -e ~/.zsh_golang ]; then
-	. ~/.zsh_golang
+if [ -e ~/.shell_golang ]; then
+	. ~/.shell_golang
 fi
 
 precedeEtcPathsDfile /etc/paths.d/Homebrew
