@@ -13,7 +13,7 @@ if [ -n "$BASH_VERSION" ]; then
     if [ -f ~/.bashrc ]; then
 	. ~/.bashrc
     fi
-    if [ ${LC_TERMINAL} = "iTerm2" ]; then
+    if [ "${LC_TERMINAL}x" = "iTerm2x" ]; then
       test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
     fi
 fi
