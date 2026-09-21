@@ -11,6 +11,10 @@ if ! zgenom saved; then
 
   zgenom ohmyzsh plugins/git
   zgenom ohmyzsh plugins/sudo
+  zgenom ohmyzsh plugins/golang
+  zgenom ohmyzsh plugins/docker
+  zgenom ohmyzsh plugins/kubectl
+
   # just load the completions
   zgenom ohmyzsh --completion plugins/docker-compose
 
@@ -40,7 +44,7 @@ if [ -e ~/.shell_aliases ]; then
 fi
 
 if type brew &>/dev/null; then
-    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+    FPATH=$(brew --prefix)/share/zsh-completions:$(brew --prefix)/share/zsh/site-functions:$FPATH
     autoload -Uz compinit && compinit -u
     zstyle ':completion:*' squeeze-slashes true
     zstyle ':completion:*' special-dirs true
