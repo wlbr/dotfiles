@@ -4,7 +4,7 @@
 [color]
 	ui = auto
 [core]
-	excludesfile = /Users/wolber/Documents/src/dotfiles/gitignore_global
+	excludesfile = ~/Documents/src/dotfiles/gitignore_global
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
@@ -16,7 +16,7 @@
 [push]
 	default = simple
 [commit]
-	template = /Users/wolber/.stCommitMsg
+	template = ~/.stCommitMsg
 	gpgsign = true
 [filter "lfs"]
 	process = git-lfs filter-process
@@ -29,6 +29,6 @@
 [include]
   path = ~/.gitconfig_local
 [http]
-	cookiefile = /Users/wolber/.gitcookies
+	cookiefile = ~/.gitcookies
 [pull]
 	rebase = false

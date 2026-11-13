@@ -144,6 +144,10 @@ if [ -e  /opt/homebrew/bin/python3 ]; then
   addPath $pbin
 fi
 
+if [ -e  /opt/homebrew/sbin ]; then
+   addPath /opt/homebrew/sbin
+fi
+
 #needs addPath
 if [ -e ~/.shell_golang ]; then
 	. ~/.shell_golang
