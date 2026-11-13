@@ -161,3 +161,8 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 #install iterm2 integration: curl -L https://iterm2.com/shell_integration/zsh -o ~/.iterm2_shell_integration.zsh
 source ~/.iterm2_shell_integration.zsh
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/wolberm/.docker/completions $fpath)
+autoload -Uz compinit
+(( ${+_comps[docker]} )) || compinit
+# End of Docker CLI completions
