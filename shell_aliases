@@ -60,6 +60,7 @@ fi
    alias mkvenv='python3 -m venv `pwd`'
 
    alias beep="echo -ne '\007'"
+   alias myip-simple='dig @ns1-1.akamaitech.net ANY whoami.akamai.net +short'
 
 
    if [ `hostname -s|cut -f 1 -d '-'`x = "wlbrx" ]; then
@@ -71,3 +72,12 @@ fi
        RESULT=`echo "$CALCLINE"| bc -l`
        echo $CALCLINE = $RESULT | sed -u "s/\./,/g"
    }
+
+   myip() {                                                                 
+       echo "Current public IP addresses:"
+       echo "myip.wlbr.de: $(curl --max-time 1 -s https://myip.wlbr.de | grep -E "Request IP +:"|sed -E "s/.+:.+>([0-9]+\.[0-9]+\.[0-9]+\.[0-9]+).+$/\1/g")"
+       echo "Akamai curl: $(curl --max-time 1 -s whatismyip.akamai.com |cut -f 1-4 -d '.')"
+       echo "Akamai:       $(dig +short +time=1 whoami.akamai.net. @ns1-1.akamaitech.net.)"
+       echo "Cloudflare:   $(dig +short +time=1 @1.1.1.1 ch txt whoami.cloudflare  | sed -E "s/\"(.+)\"/\1/")"
+       echo "OpenDNS:     $(dig +short +time=1 myip.opendns.com @resolver1.opendns.com)"
+    }
